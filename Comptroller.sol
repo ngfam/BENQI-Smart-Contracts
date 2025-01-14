@@ -1227,24 +1227,6 @@ contract Comptroller is ComptrollerVXStorage, ComptrollerInterface, ComptrollerE
         }
     }
 
-    /**
-     * @notice Claim all the benqi accrued by holder in all markets
-     * @param holder The address to claim BENQI for
-     */
-    function claimReward(uint8 rewardType, address payable holder) public {
-        return claimReward(rewardType,holder, allMarkets);
-    }
-
-    /**
-     * @notice Claim all the benqi accrued by holder in the specified markets
-     * @param holder The address to claim BENQI for
-     * @param qiTokens The list of markets to claim BENQI in
-     */
-    function claimReward(uint8 rewardType, address payable holder, QiToken[] memory qiTokens) public {
-        address payable [] memory holders = new address payable[](1);
-        holders[0] = holder;
-        claimReward(rewardType, holders, qiTokens, true, true);
-    }
 
     /**
      * @notice Claim all Benqi or Avax  accrued by the holders
